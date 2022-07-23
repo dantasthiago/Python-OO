@@ -1,0 +1,23 @@
+# Regex
+
+import re
+
+padrao = '[0-9][a-z][0-9]'
+texto = '123 1a2 1cc aa1'
+resposta = re.search(padrao, texto)
+print(resposta.group())
+
+# Buscando padrão email
+
+padrao = '\w{5,50}@\w{3,10}.\w{2,3}.\w{2,3}'
+texto = 'aaabbbccc thiago_dantas88@hotmail.com'
+resposta = re.search(padrao, texto)
+print (resposta.group())
+
+# Buscando padrao numero celular e fixo
+
+padrao_molde = '(xx)aaaa-bbbb'
+padrao = '[0-9]{2}[0-9]{4,5}[0-9]{4}'
+texto = 'eu gosto do numero 1954532728 e também 2136451234'
+resposta = re.findall(padrao, texto)
+print(resposta)
