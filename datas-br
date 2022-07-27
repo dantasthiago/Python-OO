@@ -1,0 +1,75 @@
+# Datas Brasileiras
+
+from datetime import datetime, timedelta
+
+print(datetime.today())
+
+
+
+from datetime import datetime
+
+
+class DatasBr:
+  def __init__(self):
+    self.momento_cadastro = datetime.today()
+  
+  def __str__(self):
+      return self.format_data()
+  
+  def mes_cadastro(self):
+    meses_do_ano = [
+        'janeiro',
+        'fevereiro',
+        'março',
+        'abril',
+        'maio',
+        'junho',
+        'julho',
+        'agosto',
+        'setembro',
+        'outubro',
+        'novembro',
+        'dezembro'
+    ]
+    mes_cadastro = self.momento_cadastro.month -1
+    return meses_do_ano[mes_cadastro] 
+  def dia_semana(self):
+    dia_da_semana = [
+        'dominago',
+        'segunda-feira',
+        'terça-feira',
+        'quarta-feira',
+        'quinta-feira',
+        'sexta-feira',
+        'sábado'
+    ]
+    dia_cadastro = self.momento_cadastro.weekday()
+    return dia_da_semana[dia_cadastro]
+  
+  def format_data(self):
+    data_formatada = self.momento_cadastro.strftime('%d/%m/%Y %H:%M')
+    return data_formatada
+
+  def tempo_cadastro(self):
+    tempo_cadastro = (datetime.today()+ timedelta(days=30)) - self.momento_cadastro
+    return tempo_cadastro
+
+cadastro = DatasBr()
+
+print(cadastro.tempo_cadastro())
+
+hoje = datetime.today()
+hoje_formatado = hoje.strftime('%d/%m/%Y %H:%M')
+
+print(hoje)
+print(hoje_formatado)
+
+# Diferenças entre datas
+
+from datetime import datetime
+
+
+hoje = datetime.today()
+amanha = datetime.today() + timedelta(days=1, hours=20)
+print(amanha - hoje)
+
